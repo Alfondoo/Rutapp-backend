@@ -36,3 +36,11 @@ class RutasSerializer(ModelSerializer):
         if instance.created_at:
             ret['created_at'] = instance.created_at.strftime('%d/%m/%Y %H:%M')
         return ret
+
+
+class RutasDetailSerializer(ModelSerializer):
+    puntos = PuntoSerializer(many=True)
+
+    class Meta:
+        model = Ruta
+        fields = '__all__'
